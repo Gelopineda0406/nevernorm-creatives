@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Nevernorm Creatives is a Manila-based creative team for content creation, video editing, photo and video coverage, production and social media management.">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Nevernorm Creatives</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Fredoka:wght@600&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: a dark film-poster page (charcoal, cream, warm grey, slanted photo panels) cut by one bright blue "crew card" band. Single committed look in every theme. */
+:root {
+  --charcoal: #1f1f21;
+  --coal: #161617;
+  --panel: #8f8d84;
+  --cream: #f3efdf;
+  --stone: #a7a398;
+  --blue: #3489d0;
+  --blue-soft: #6ba9dd;
+  --poster: "Archivo Black", "Arial Black", Impact, sans-serif;
+  --tall: "Anton", "Oswald", Impact, "Arial Narrow", sans-serif;
+  --round: "Fredoka", "Nunito", "Arial Rounded MT Bold", system-ui, sans-serif;
+  --body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
+body {
+  background: var(--charcoal); color: var(--cream);
+  font-family: var(--body); font-size: 1.0625rem; line-height: 1.6;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--coal); }
+body::after { content: ""; position: fixed; inset: 0; pointer-events: none; background-image: var(--grain); opacity: .06; z-index: 20; }
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--cream); outline-offset: 3px; }
+
+.wrap {
+  max-width: 1120px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.ph { background: rgba(243, 239, 223, .14); outline: 1px dashed rgba(243, 239, 223, .45); outline-offset: 1px; padding: 0 3px; }
+.kicker { font-family: var(--body); font-weight: 600; font-size: .75rem; text-transform: uppercase; letter-spacing: .16em; color: var(--stone); }
+
+/* Top bar */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--coal); border-bottom: 1px solid #2c2c2f; }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
+.logo { font-family: var(--poster); font-size: 1.35rem; letter-spacing: -.02em; text-decoration: none; display: flex; align-items: center; gap: 12px; }
+.logo small { font-family: var(--body); font-weight: 600; font-size: .7rem; letter-spacing: .14em; color: var(--stone); border-left: 1px solid #444; padding-left: 12px; }
+.nav { display: flex; gap: 22px; flex-wrap: wrap; }
+.nav a { font-weight: 600; font-size: .8rem; text-transform: uppercase; letter-spacing: .12em; color: var(--stone); text-decoration: none; }
+.nav a:hover { color: var(--cream); }
+
+/* Hero: poster */
+.hero { padding-block: 56px 72px; overflow: hidden; }
+.hero .wrap { display: grid; gap: 8px; }
+.title-a { font-family: var(--poster); font-size: clamp(2.4rem, 10.5vw, 8.5rem); line-height: .85; letter-spacing: -.03em; margin: 18px 0 0; }
+.title-b { font-family: var(--tall); font-size: clamp(3rem, 13vw, 9.5rem); line-height: .9; color: var(--stone); text-transform: uppercase; margin: 0; letter-spacing: -.005em; }
+.hero-row { display: grid; grid-template-columns: 1fr 1.3fr; gap: 40px; align-items: end; margin-top: 36px; }
+.lede { font-size: clamp(1.1rem, 2.2vw, 1.3rem); color: #d9d5c6; max-width: 34ch; margin: 0; }
+.cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+.btn { display: inline-block; padding: 13px 22px; font: 700 .85rem var(--body); text-transform: uppercase; letter-spacing: .1em; text-decoration: none; border: 2px solid var(--cream); }
+.btn.solid { background: var(--cream); color: var(--charcoal); }
+.btn:hover { transform: translateY(-2px); transition: transform .15s; }
+
+/* Slanted portrait panels, like the GFX poster */
+.panels { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; transform: skewY(-5deg); }
+.frame {
+  position: relative; aspect-ratio: 3 / 4; max-width: 100%;
+  background: linear-gradient(180deg, #a19e94, var(--panel) 60%, #6f6d66);
+  overflow: hidden;
+}
+.panels .frame:nth-child(2) { margin-top: 36px; }
+.panels .frame:nth-child(3) { margin-top: 72px; }
+.frame::before { /* silhouette stand-in for a cutout portrait */
+  content: ""; position: absolute; left: 50%; bottom: -8%; width: 78%; aspect-ratio: 1 / 1.25; translate: -50% 0;
+  background: radial-gradient(circle at 50% 24%, #2a2a2c 0 21%, transparent 21.5%), radial-gradient(ellipse at 50% 100%, #2a2a2c 0 52%, transparent 52.5%);
+}
+.frame::after { content: ""; position: absolute; inset: 0; background-image: var(--grain); opacity: .25; mix-blend-mode: overlay; }
+.frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05); }
+.frame:has(img)::before { display: none; }
+.frame span { position: absolute; right: 8px; bottom: 10px; z-index: 1; font: 700 .62rem var(--body); text-transform: uppercase; letter-spacing: .12em; color: var(--cream); }
+
+/* Section heads */
+section { padding-block: 88px; }
+.head { display: flex; justify-content: space-between; align-items: end; gap: 16px; flex-wrap: wrap; margin-bottom: 36px; }
+.head h2 { font-family: var(--tall); font-weight: 400; text-transform: uppercase; font-size: clamp(2.75rem, 8vw, 5.5rem); line-height: .9; margin: 0; }
+.head h2 b { font-family: var(--poster); font-weight: 400; display: block; font-size: .5em; letter-spacing: -.01em; color: var(--stone); }
+
+/* Work: mixed reels (9:16) and photos, masonry columns with a filter */
+.filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+.chip { font: 700 .75rem var(--body); text-transform: uppercase; letter-spacing: .12em; padding: 9px 16px; border: 1px solid #47474b; background: transparent; color: var(--stone); cursor: pointer; }
+.chip-sep { width: 1px; align-self: stretch; background: #47474b; margin-inline: 4px; }
+.chip[aria-pressed="true"] { background: var(--cream); border-color: var(--cream); color: var(--charcoal); }
+.wall { columns: 4 230px; column-gap: 16px; }
+div.tile, .tile { break-inside: avoid; margin: 0 0 22px; display: block; text-decoration: none; }
+.tile[hidden] { display: none; }
+.media { position: relative; max-width: 100%; overflow: hidden; background: linear-gradient(180deg, #34343a, #26262a); display: grid; place-items: center; }
+.media::after { content: ""; position: absolute; inset: 0; background-image: var(--grain); opacity: .12; pointer-events: none; }
+.tile[data-kind="reel"] .media { aspect-ratio: 9 / 16; background: #000; }
+.tile[data-kind="reel"] .media.r169 { aspect-ratio: 16 / 9; }
+.media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: #000; }
+.media:has(video)::after, .media:has(img)::after { display: none; }
+.media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.r23 { aspect-ratio: 2 / 3; }
+.tile[data-kind="photo"] .media { background: linear-gradient(180deg, #a19e94, var(--panel) 60%, #6f6d66); }
+.r45 { aspect-ratio: 4 / 5; } .r32 { aspect-ratio: 3 / 2; } .r11 { aspect-ratio: 1 / 1; }
+.badge-k { position: absolute; left: 10px; top: 10px; z-index: 1; font: 700 .65rem/1 var(--body); text-transform: uppercase; letter-spacing: .14em; padding: 6px 8px; background: var(--charcoal); color: var(--cream); }
+.tile[data-kind="reel"] .badge-k { background: var(--blue); color: #fff; }
+.play { width: 56px; height: 56px; border-radius: 50%; border: 2px solid var(--cream); display: grid; place-items: center; z-index: 1; transition: transform .15s; }
+.play::before { content: ""; margin-left: 4px; border-style: solid; border-width: 9px 0 9px 15px; border-color: transparent transparent transparent var(--cream); }
+.tile:hover .play { transform: scale(1.08); }
+.media em { position: absolute; bottom: 10px; left: 10px; right: 10px; z-index: 1; font-style: normal; font: 600 .68rem var(--body); text-transform: uppercase; letter-spacing: .12em; color: var(--cream); }
+.tile[data-kind="photo"] .media em { color: var(--charcoal); }
+.tile h3 { font-family: var(--poster); font-weight: 400; font-size: 1.05rem; line-height: 1.15; margin: 10px 0 2px; text-transform: uppercase; color: var(--cream); }
+.tile .sub { font-size: .85rem; color: var(--stone); }
+
+/* Blue crew-card band */
+.crew { background: var(--blue); color: #fff; position: relative; overflow: hidden; }
+.crew .ghost {
+  position: absolute; top: -.18em; left: -.06em; font-family: var(--round); font-weight: 600;
+  font-size: clamp(7rem, 26vw, 22rem); line-height: .8; color: var(--blue-soft); letter-spacing: -.04em; pointer-events: none; user-select: none;
+}
+.crew .wrap { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: end; padding-top: clamp(80px, 16vw, 200px); }
+.crew h2 { font-family: var(--round); font-weight: 600; font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1; margin: 0 0 18px; letter-spacing: -.02em; }
+.crew p { margin: 0 0 14px; max-width: 52ch; }
+.crew .ph { background: rgba(255,255,255,.18); outline-color: rgba(255,255,255,.6); }
+.roles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 24px; }
+.roles strong { display: block; font-family: var(--round); font-weight: 600; font-size: clamp(1.6rem, 3.4vw, 2.2rem); line-height: 1; letter-spacing: -.01em; }
+.roles span { font-size: .95rem; opacity: .9; }
+.badge { margin-top: 40px; font-family: Georgia, "Times New Roman", serif; color: #bcd8f1; line-height: 1; }
+.badge b { display: block; font-size: 2.4rem; font-weight: 400; }
+
+/* Kit */
+.kit { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+.kit h3 { font-family: var(--tall); font-weight: 400; text-transform: uppercase; font-size: 1.6rem; margin: 0 0 12px; color: var(--cream); }
+.kit ul { list-style: none; margin: 0; padding: 0; }
+.kit li { padding: 9px 0; border-top: 1px solid #343437; color: #d9d5c6; }
+
+/* Contact */
+.contact { background: var(--coal); }
+.contact .big { font-family: var(--poster); font-size: clamp(3.25rem, 13vw, 10rem); line-height: .85; letter-spacing: -.03em; margin: 0; text-transform: uppercase; }
+.contact .big span { display: block; font-family: var(--tall); font-weight: 400; color: var(--stone); letter-spacing: 0; }
+.mail-row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-top: 36px; }
+.email { font-family: var(--poster); font-size: clamp(1.15rem, 4vw, 2rem); user-select: all; overflow-wrap: anywhere; }
+.copy { font: 700 .75rem var(--body); text-transform: uppercase; letter-spacing: .12em; padding: 10px 16px; border: 1px solid var(--stone); background: transparent; color: var(--cream); cursor: pointer; }
+.socials { display: flex; flex-wrap: wrap; gap: 24px; list-style: none; padding: 0; margin: 28px 0 0; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; font-size: .85rem; }
+footer { background: var(--coal); border-top: 1px solid #2c2c2f; }
+footer .wrap { padding-block: 24px; display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; font-size: .8rem; color: var(--stone); }
+
+/* Story band extras */
+.story p { max-width: 54ch; }
+.story .lead { font-size: clamp(1.15rem, 2.2vw, 1.35rem); font-weight: 500; }
+
+/* Places shot */
+.places { padding-block: 64px; }
+.places ul { list-style: none; margin: 20px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 30px; }
+.places li { font-family: var(--tall); text-transform: uppercase; font-size: clamp(2rem, 6vw, 4rem); line-height: 1; color: var(--stone); display: flex; align-items: flex-start; gap: 6px; }
+.places li:first-child { color: var(--cream); }
+.places .code { font: 700 .7rem var(--body); letter-spacing: .1em; color: var(--blue-soft); margin-top: .5em; }
+
+/* Services */
+.services { list-style: none; margin: 0; padding: 0; }
+.services li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 24px; align-items: baseline; padding-block: 22px; border-top: 1px solid #343437; }
+.services li:last-child { border-bottom: 1px solid #343437; }
+.services h3 { font-family: var(--tall); font-weight: 400; text-transform: uppercase; font-size: clamp(1.8rem, 4.5vw, 3rem); line-height: 1; margin: 0; }
+.services p { margin: 0; color: #cfcbbd; max-width: 52ch; }
+
+/* Team roster, like a crew card */
+.team { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px 20px; list-style: none; margin: 0; padding: 0; }
+.team li { min-width: 0; }
+.team .frame { aspect-ratio: 4 / 5; }
+.team .name { font-family: var(--round); font-weight: 600; font-size: clamp(1.4rem, 2.6vw, 1.9rem); line-height: 1.05; margin: 14px 0 4px; letter-spacing: -.01em; }
+.team .job { font-size: .9rem; color: var(--stone); }
+.team li.lead .frame { outline: 2px solid var(--blue); outline-offset: 4px; }
+
+@media (max-width: 820px) {
+  .team { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .services li { grid-template-columns: 1fr; gap: 8px; }
+  .hero-row, .crew .wrap { grid-template-columns: 1fr; }
+  .wall { columns: 2; column-gap: 12px; }
+  .kit { grid-template-columns: 1fr; gap: 24px; }
+  section { padding-block: 64px; }
+}
+@media (max-width: 520px) { .nav a:nth-child(n+3) { display: none; } .logo small { display: none; } .roles { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top">NEVERNORM. <small>CREATIVES</small></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#about">Story</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div class="kicker">Manila-based creative team · Shooting across Asia &amp; the UAE</div>
+      <h1 class="title-a">NEVERNORM</h1>
+      <p class="title-b">Creatives</p>
+      <p class="kicker" style="margin:14px 0 0;color:var(--cream)">Content · Coverage · Production · Social</p>
+      <div class="hero-row">
+        <div>
+          <p class="lede">Never normal. We're a crew of producers, shooters, editors and social media managers who make content, cover shoots and run social for brands and creators.</p>
+          <div class="cta">
+            <a class="btn solid" href="#work">See the work</a>
+            <a class="btn" href="#contact">Work with us</a>
+          </div>
+        </div>
+        <div class="panels" aria-label="Featured photos">
+          <div class="frame"><img src="media/fip-aidan.jpg" alt="Padel player Aidan at FIP"><span>Sports</span></div>
+          <div class="frame"><img src="media/therapin-enzo.jpg" alt="Enzo for Therapin"><span>Portraits</span></div>
+          <div class="frame"><img src="media/tcasso.jpg" alt="Tcasso portrait"><span>Creative</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="head">
+        <h2><b>Selected</b>Work</h2>
+        <div class="kicker">11 reels · 16 photos</div>
+      </div>
+      <div class="filters" role="group" aria-label="Filter work">
+        <button class="chip" type="button" data-f="all" aria-pressed="true">All</button>
+        <button class="chip" type="button" data-f="reel" aria-pressed="false">Reels</button>
+        <button class="chip" type="button" data-f="photo" aria-pressed="false">Photos</button>
+        <span class="chip-sep" aria-hidden="true"></span>
+        <button class="chip" type="button" data-f="sports" aria-pressed="false">Sports &amp; Fitness</button>
+        <button class="chip" type="button" data-f="fnb" aria-pressed="false">F&amp;B</button>
+        <button class="chip" type="button" data-f="beauty" aria-pressed="false">Beauty</button>
+        <button class="chip" type="button" data-f="events" aria-pressed="false">Events</button>
+        <button class="chip" type="button" data-f="portraits" aria-pressed="false">Portraits &amp; Brand</button>
+      </div>
+      <div class="wall" id="wall">
+        <div class="tile" data-kind="reel" data-cat="sports"><div class="media"><span class="badge-k">Reel · 0:24</span><video src="media/pop-padel.mp4" poster="media/pop-padel.jpg" controls playsinline preload="none"></video></div><h3>Club Med Pop Padel</h3><span class="sub">Sports · Padel</span></div>
+        <div class="tile" data-kind="photo" data-cat="sports"><div class="media" style="aspect-ratio: 933 / 1400"><span class="badge-k">Photo</span><img src="media/appt-christian.jpg" alt="Padel player Christian mid-smash on a Tactical Padel court" loading="lazy"></div><h3>APPT · Christian</h3><span class="sub">Sports · Padel</span></div>
+        <div class="tile" data-kind="reel" data-cat="fnb"><div class="media"><span class="badge-k">Reel · 0:20</span><video src="media/craft-behind-the-plate.mp4" poster="media/craft-behind-the-plate.jpg" controls playsinline preload="none"></video></div><h3>Craft Behind the Plate</h3><span class="sub">F&amp;B · Ipponyari</span></div>
+        <div class="tile" data-kind="photo" data-cat="portraits"><div class="media" style="aspect-ratio: 1000 / 1500"><span class="badge-k">Photo</span><img src="media/tcasso.jpg" alt="Black and white double-exposure portrait of Tcasso in a denim jacket" loading="lazy"></div><h3>Tcasso</h3><span class="sub">Portrait · Photography</span></div>
+        <div class="tile" data-kind="reel" data-cat="sports"><div class="media r169"><span class="badge-k">Reel · 0:48</span><video src="media/fip-promises.mp4" poster="media/fip-promises.jpg" controls playsinline preload="none"></video></div><h3>FIP Promises Tour 2026</h3><span class="sub">Sports · Padel · Asia Padel Events</span></div>
+        <div class="tile" data-kind="photo" data-cat="events"><div class="media" style="aspect-ratio: 1000 / 667"><span class="badge-k">Photo</span><img src="media/bando-krishna.jpg" alt="Friends posing in a packed Bando crowd" loading="lazy"></div><h3>Bando · Krishna</h3><span class="sub">Events · Nightlife</span></div>
+        <div class="tile" data-kind="reel" data-cat="beauty"><div class="media"><span class="badge-k">Reel · 0:41</span><video src="media/dreamskin.mp4" poster="media/dreamskin.jpg" controls playsinline preload="none"></video></div><h3>DreamSkin</h3><span class="sub">Beauty &amp; Wellness</span></div>
+        <div class="tile" data-kind="photo" data-cat="sports"><div class="media" style="aspect-ratio: 787 / 1400"><span class="badge-k">Photo</span><img src="media/fip-pol.jpg" alt="Black and white shot of padel player Pol at the net" loading="lazy"></div><h3>FIP · Pol</h3><span class="sub">Sports · Padel</span></div>
+        <div class="tile" data-kind="photo" data-cat="fnb"><div class="media" style="aspect-ratio: 787 / 1400"><span class="badge-k">Photo</span><img src="media/ipponyari-tempura.jpg" alt="Shrimp tempura plated at Ipponyari" loading="lazy"></div><h3>Ipponyari Tempura</h3><span class="sub">F&amp;B · Food photography</span></div>
+        <div class="tile" data-kind="reel" data-cat="sports"><div class="media"><span class="badge-k">Reel · 0:34</span><video src="media/silkserve-launch.mp4" poster="media/silkserve-launch.jpg" controls playsinline preload="none"></video></div><h3>Silkserve Launch</h3><span class="sub">Sports · Padel · Brand launch</span></div>
+        <div class="tile" data-kind="photo" data-cat="beauty"><div class="media" style="aspect-ratio: 933 / 1400"><span class="badge-k">Photo</span><img src="media/pretty-skin.jpg" alt="Close-up beauty shot of a woman with a skincare device" loading="lazy"></div><h3>Pretty Skin</h3><span class="sub">Beauty · Campaign</span></div>
+        <div class="tile" data-kind="reel" data-cat="events"><div class="media r169"><span class="badge-k">Reel · 1:22</span><video src="media/747-christmas-party.mp4" poster="media/747-christmas-party.jpg" controls playsinline preload="none"></video></div><h3>747 LIVE Christmas Party</h3><span class="sub">Events · Company party</span></div>
+        <div class="tile" data-kind="photo" data-cat="sports"><div class="media" style="aspect-ratio: 933 / 1400"><span class="badge-k">Photo</span><img src="media/therapin-enzo.jpg" alt="Black and white portrait of Enzo in a Therapin shirt" loading="lazy"></div><h3>Therapin · Enzo</h3><span class="sub">Sports · Athlete portrait</span></div>
+        <div class="tile" data-kind="photo" data-cat="portraits"><div class="media" style="aspect-ratio: 933 / 1400"><span class="badge-k">Photo</span><img src="media/alo-rere.jpg" alt="Rere posing in front of the Alo logo wall" loading="lazy"></div><h3>Alo · Rere</h3><span class="sub">Brand · Event</span></div>
+        <div class="tile" data-kind="reel" data-cat="fnb"><div class="media"><span class="badge-k">Reel · 0:31</span><video src="media/restaurant-reels.mp4" poster="media/restaurant-reels.jpg" controls playsinline preload="none"></video></div><h3>Restaurant Reels</h3><span class="sub">F&amp;B · Kitchen &amp; bar</span></div>
+        <div class="tile" data-kind="photo" data-cat="beauty"><div class="media" style="aspect-ratio: 1000 / 1000"><span class="badge-k">Photo</span><img src="media/lamelin.jpg" alt="Hand holding a pink Lamelin Air Fit Watery Sun Cream tube" loading="lazy"></div><h3>Lamelin Sun Cream</h3><span class="sub">Beauty · Product shoot</span></div>
+        <div class="tile" data-kind="photo" data-cat="events"><div class="media" style="aspect-ratio: 1000 / 667"><span class="badge-k">Photo</span><img src="media/bando-icoy.jpg" alt="Party crowd at Bando under warm motion-blurred lights" loading="lazy"></div><h3>Bando · Icoy</h3><span class="sub">Events · Nightlife</span></div>
+        <div class="tile" data-kind="photo" data-cat="fnb"><div class="media" style="aspect-ratio: 1000 / 563"><span class="badge-k">Photo</span><img src="media/ipponyari.jpg" alt="Ramen, yakitori and tempura spread on a wooden table at Ipponyari" loading="lazy"></div><h3>Ipponyari Spread</h3><span class="sub">F&amp;B · Food photography</span></div>
+        <div class="tile" data-kind="reel" data-cat="sports"><div class="media r169"><span class="badge-k">Reel · 1:04</span><video src="media/af-metpark.mp4" poster="media/af-metpark.jpg" controls playsinline preload="none"></video></div><h3>AF Metpark</h3><span class="sub">Wellness &amp; Fitness</span></div>
+        <div class="tile" data-kind="photo" data-cat="sports"><div class="media" style="aspect-ratio: 933 / 1400"><span class="badge-k">Photo</span><img src="media/fip-aidan.jpg" alt="Black and white shot of padel player Aidan lunging for a low ball" loading="lazy"></div><h3>FIP · Aidan</h3><span class="sub">Sports · Padel</span></div>
+        <div class="tile" data-kind="photo" data-cat="fnb"><div class="media" style="aspect-ratio: 933 / 1400"><span class="badge-k">Photo</span><img src="media/ascaro-paella.jpg" alt="Seafood paella in takeaway boxes with lemon" loading="lazy"></div><h3>Ascaro Paella</h3><span class="sub">F&amp;B · Food photography</span></div>
+        <div class="tile" data-kind="reel" data-cat="events"><div class="media"><span class="badge-k">Reel · 0:46</span><video src="media/747-sigma-2025.mp4" poster="media/747-sigma-2025.jpg" controls playsinline preload="none"></video></div><h3>747 Sigma 2025</h3><span class="sub">Events · Brand activation</span></div>
+        <div class="tile" data-kind="photo" data-cat="portraits"><div class="media" style="aspect-ratio: 1000 / 1500"><span class="badge-k">Photo</span><img src="media/tcasso-visuals.jpg" alt="Tcasso poster with graffiti-style title and warm film grain" loading="lazy"></div><h3>Tcasso Visuals</h3><span class="sub">Creative shoot · Poster design</span></div>
+        <div class="tile" data-kind="reel" data-cat="sports"><div class="media r169"><span class="badge-k">Reel · 1:14</span><video src="media/padel300-manila.mp4" poster="media/padel300-manila.jpg" controls playsinline preload="none"></video></div><h3>Padel300 Manila</h3><span class="sub">Sports · Padel · Event</span></div>
+        <div class="tile" data-kind="photo" data-cat="portraits"><div class="media" style="aspect-ratio: 933 / 1400"><span class="badge-k">Photo</span><img src="media/alo.jpg" alt="Alo store shelves with yoga mats and a bag" loading="lazy"></div><h3>Alo</h3><span class="sub">Brand · Retail</span></div>
+        <div class="tile" data-kind="photo" data-cat="events"><div class="media" style="aspect-ratio: 1000 / 667"><span class="badge-k">Photo</span><img src="media/bando-lou.jpg" alt="Partygoer in a cap with streaked warm light" loading="lazy"></div><h3>Bando · Lou</h3><span class="sub">Events · Nightlife</span></div>
+        <div class="tile" data-kind="reel" data-cat="sports"><div class="media"><span class="badge-k">Reel · 0:58</span><video src="media/sponsor-reel.mp4" poster="media/sponsor-reel.jpg" controls playsinline preload="none"></video></div><h3>Sponsor Reel</h3><span class="sub">Sports · Padel · FIP Promises</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="crew story" id="about">
+    <div class="ghost" aria-hidden="true">our<br>story</div>
+    <div class="wrap">
+      <div>
+        <h2>never normal.</h2>
+        <p class="lead">Nevernorm Creatives started with Gelo and a camera.</p>
+        <p>Gelo began as a photographer shooting sports, portraits and the streets of Manila. That work grew into producing creative shoots, running social media pages and covering behind-the-scenes for production crews. Along the way, a one-person setup turned into a team.</p>
+        <p>Today we're a Manila-based crew that takes a project from first idea to final post. A creative director and producers shape the idea, a line producer keeps the shoot on schedule, our DOP and photographers capture it, editors and a graphic artist finish it, and our social media managers get it seen.</p>
+        <p>On paper we're a bunch of chaos: one team, different people, each with a different eye. That's the point. Nothing we make looks normal, and we like it that way.</p>
+        <div class="badge"><b>Nevernorm</b>Creatives · Manila</div>
+      </div>
+      <ul class="roles">
+        <li><strong>a bunch of chaos</strong><span>that shows up organized on shoot day</span></li>
+        <li><strong>1 team</strong><span>from concept to final post</span></li>
+        <li><strong>different people</strong><span>every role, every eye</span></li>
+        <li><strong>manila based</strong><span>shot in 9 countries and counting</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="places" aria-labelledby="places-h">
+    <div class="wrap">
+      <div class="kicker" id="places-h">Manila-based · Shot in 9 countries</div>
+      <ul>
+        <li><span class="code">PH</span>Philippines</li>
+        <li><span class="code">ID</span>Indonesia</li>
+        <li><span class="code">SG</span>Singapore</li>
+        <li><span class="code">MY</span>Malaysia</li>
+        <li><span class="code">TH</span>Thailand</li>
+        <li><span class="code">VN</span>Vietnam</li>
+        <li><span class="code">JP</span>Japan</li>
+        <li><span class="code">HK</span>Hong Kong</li>
+        <li><span class="code">AE</span>UAE</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="head">
+        <h2><b>What we</b>Do</h2>
+        <div class="kicker">One crew, end to end</div>
+      </div>
+      <ul class="services">
+        <li><h3>Content Creation</h3><p>Concepts, shoots and short-form content built for how people actually scroll.</p></li>
+        <li><h3>Video Editing</h3><p>Reels, brand films, event recaps and BTS cuts, edited and colour graded in-house.</p></li>
+        <li><h3>Photo &amp; Video Coverage</h3><p>Events, sports, portraits and behind-the-scenes, shot by people who know how to read a room.</p></li>
+        <li><h3>Production</h3><p>Planning, crewing, call sheets and line producing, so shoot day runs on time and on budget.</p></li>
+        <li><h3>Social Media Management</h3><p>Strategy, content calendars, posting and community, run by our social team.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Crew section hidden for now at Gelo's request; remove `hidden` and restore the nav link to bring it back. -->
+  <section id="team" hidden>
+    <div class="wrap">
+      <div class="head">
+        <h2><b>Meet the</b>Crew</h2>
+        <div class="kicker">1 team · different people</div>
+      </div>
+      <ul class="team">
+        <li class="lead"><div class="frame"><span>Photo</span></div><p class="name">gelo</p><span class="job">Founder · Creative Producer · Photographer · Social Media</span></li>
+        <li><div class="frame"><span>Photo</span></div><p class="name ph">name</p><span class="job">Creative Director</span></li>
+        <li><div class="frame"><span>Photo</span></div><p class="name ph">name</p><span class="job">Line Producer</span></li>
+        <li><div class="frame"><span>Photo</span></div><p class="name ph">name</p><span class="job">Director of Photography</span></li>
+        <li><div class="frame"><span>Photo</span></div><p class="name ph">name</p><span class="job">Photographer / Videographer</span></li>
+        <li><div class="frame"><span>Photo</span></div><p class="name ph">name</p><span class="job">Video Editor</span></li>
+        <li><div class="frame"><span>Photo</span></div><p class="name ph">name</p><span class="job">Graphic Artist</span></li>
+        <li><div class="frame"><span>Photo</span></div><p class="name ph">names</p><span class="job">Social Media Managers</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <p class="big">Never normal.<span>Let's talk</span></p>
+      <div class="mail-row">
+        <a class="email" id="email" href="mailto:gelopineda0406@gmail.com">gelopineda0406@gmail.com</a>
+        <button class="copy" id="copy-email" type="button">Copy email</button>
+      </div>
+      <ul class="socials">
+        <li><a href="https://wa.me/639054160438" target="_blank" rel="noopener">WhatsApp +63 905 416 0438 ↗</a></li>
+        <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram ↗</a></li>
+        <li><a href="https://vimeo.com/" target="_blank" rel="noopener">Vimeo ↗</a></li>
+        <li><a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube ↗</a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Nevernorm Creatives</span>
+    <span>Manila, Philippines</span>
+  </div>
+</footer>
+
+<script>
+  const btn = document.getElementById('copy-email');
+  btn.addEventListener('click', () => {
+    const el = document.getElementById('email');
+    const done = () => { btn.textContent = 'Copied'; setTimeout(() => btn.textContent = 'Copy email', 1600); };
+    const fallback = () => {
+      const r = document.createRange(); r.selectNodeContents(el);
+      const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'Selected, press Ctrl+C';
+    };
+    if (navigator.clipboard) navigator.clipboard.writeText(el.textContent.trim()).then(done, fallback); else fallback();
+  });
+  document.querySelectorAll('#wall video').forEach(v => v.addEventListener('play', () => {
+    document.querySelectorAll('#wall video').forEach(o => { if (o !== v) o.pause(); });
+  }));
+  document.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => {
+    document.querySelectorAll('.chip').forEach(o => o.setAttribute('aria-pressed', String(o === c)));
+    document.querySelectorAll('#wall .tile').forEach(t => { const f = c.dataset.f; t.hidden = !(f === 'all' || t.dataset.kind === f || t.dataset.cat === f); });
+  }));
+</script>
+</body>
+</html>
