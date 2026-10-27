@@ -171,7 +171,12 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
 .services p { margin: 0; color: #cfcbbd; max-width: 52ch; }
 
 /* Team roster, like a crew card */
-.team { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px 20px; list-style: none; margin: 0; padding: 0; }
+.team { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 32px 20px; list-style: none; margin: 0; padding: 0; }
+.frame.mono { display: grid; place-items: center; }
+.frame.mono::before { display: none; }
+.frame .ini { position: static; font: 600 clamp(2.4rem, 5vw, 3.6rem)/1 var(--round); letter-spacing: -.02em; color: var(--charcoal); text-transform: none; }
+.team li.lead .frame.mono { background: var(--blue); }
+.team li.lead .ini { color: #fff; }
 .team li { min-width: 0; }
 .team .frame { aspect-ratio: 4 / 5; }
 .team .name { font-family: var(--round); font-weight: 600; font-size: clamp(1.4rem, 2.6vw, 1.9rem); line-height: 1.05; margin: 14px 0 4px; letter-spacing: -.01em; }
@@ -179,14 +184,14 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
 .team li.lead .frame { outline: 2px solid var(--blue); outline-offset: 4px; }
 
 @media (max-width: 820px) {
-  .team { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .team { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .services li { grid-template-columns: 1fr; gap: 8px; }
   .hero-row, .crew .wrap { grid-template-columns: 1fr; }
   .wall { columns: 2; column-gap: 12px; }
   .kit { grid-template-columns: 1fr; gap: 24px; }
   section { padding-block: 64px; }
 }
-@media (max-width: 520px) { .nav a:nth-child(n+3) { display: none; } .logo small { display: none; } .roles { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .team { grid-template-columns: repeat(2, minmax(0, 1fr)); } .nav a:nth-child(n+3) { display: none; } .logo small { display: none; } .roles { grid-template-columns: 1fr 1fr; } }
 </style>
 </head>
 <body>
@@ -198,6 +203,7 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
       <a href="#work">Work</a>
       <a href="#about">Story</a>
       <a href="#services">Services</a>
+      <a href="#team">Crew</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -333,22 +339,18 @@ footer .wrap { padding-block: 24px; display: flex; justify-content: space-betwee
     </div>
   </section>
 
-  <!-- Crew section hidden for now at Gelo's request; remove `hidden` and restore the nav link to bring it back. -->
-  <section id="team" hidden>
+  <section id="team">
     <div class="wrap">
       <div class="head">
         <h2><b>Meet the</b>Crew</h2>
         <div class="kicker">1 team · different people</div>
       </div>
       <ul class="team">
-        <li class="lead"><div class="frame"><span>Photo</span></div><p class="name">gelo</p><span class="job">Founder · Creative Producer · Photographer · Social Media</span></li>
-        <li><div class="frame"><span>Photo</span></div><p class="name ph">name</p><span class="job">Creative Director</span></li>
-        <li><div class="frame"><span>Photo</span></div><p class="name ph">name</p><span class="job">Line Producer</span></li>
-        <li><div class="frame"><span>Photo</span></div><p class="name ph">name</p><span class="job">Director of Photography</span></li>
-        <li><div class="frame"><span>Photo</span></div><p class="name ph">name</p><span class="job">Photographer / Videographer</span></li>
-        <li><div class="frame"><span>Photo</span></div><p class="name ph">name</p><span class="job">Video Editor</span></li>
-        <li><div class="frame"><span>Photo</span></div><p class="name ph">name</p><span class="job">Graphic Artist</span></li>
-        <li><div class="frame"><span>Photo</span></div><p class="name ph">names</p><span class="job">Social Media Managers</span></li>
+        <li class="lead"><div class="frame mono"><span class="ini" aria-hidden="true">GP</span></div><p class="name">gelo</p><span class="job">Founder · Creative Producer · Photographer · Social Media</span></li>
+        <li><div class="frame mono"><span class="ini" aria-hidden="true">JC</span></div><p class="name">jk calderon</p><span class="job">Cinematographer</span></li>
+        <li><div class="frame mono"><span class="ini" aria-hidden="true">LM</span></div><p class="name">leo malli</p><span class="job">Director · Senior Video Editor</span></li>
+        <li><div class="frame mono"><span class="ini" aria-hidden="true">DT</span></div><p class="name">dean tegon</p><span class="job">Senior Video Editor · Executive Producer</span></li>
+        <li><div class="frame mono"><span class="ini" aria-hidden="true">KV</span></div><p class="name">kenjie villanueva</p><span class="job">Photographer</span></li>
       </ul>
     </div>
   </section>
